@@ -15,9 +15,9 @@
   <header>
     <nav>
       <ul>
-        <li><a href="#">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li>November 2023</li>
       </ul>
     </nav>
@@ -49,30 +49,53 @@
         <section>
           <h4>Want to reach out?</h4>
           <h4>
-            <span>Contact me</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-arrow-right"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
+            <a href="#contact">
+              <span>Contact me</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
           </h4>
         </section>
       </section>
     </section>
-    <section>
-      <section>
+    <section id="projects">
+      <section class="section-title">
         <h2>Projects</h2>
+      </section>
+      <section></section>
+    </section>
+    <section id="contact">
+      <section id="contact-title" class="section-title">
+        <h2>Contact</h2>
+      </section>
+      <section id="contact-content">
+        <form action="">
+          <h4>Want to reach out?</h4>
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email address" />
+          <textarea
+            cols="30"
+            rows="10"
+            placeholder="What you want to talk about :)"
+          ></textarea>
+          <button type="submit">Send message</button>
+        </form>
+        <canvas id="dot-canvas"></canvas>
       </section>
     </section>
   </body>
 </html>
+<script src="/script.js"></script>

@@ -8,11 +8,13 @@
 
 html {
   background-color: #000000;
+  scroll-behavior: smooth;
 }
 
 body {
   max-width: 86rem;
   margin: auto;
+  padding-bottom: 4rem;
 }
 
 h1,
@@ -20,6 +22,7 @@ h2,
 h3 {
   font-family: "Array", sans-serif;
   font-weight: 400;
+  font-size: 4rem;
 }
 
 /* Nav */
@@ -105,7 +108,9 @@ nav ul:hover li:not(:hover) {
   padding: 2rem;
   gap: 1rem;
   border: 1px solid white;
-  border-top: 0;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-top: 0px;
 }
 
 #hero-grid section h4 {
@@ -165,4 +170,69 @@ nav ul:hover li:not(:hover) {
 #hero-grid section:last-child h4:last-child svg {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+/* Contact */
+.section-title {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px white solid;
+  border-bottom: 0px;
+}
+
+#contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#contact-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  border: 1px white solid;
+  border-right: 0px;
+}
+
+#contact-content h4 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#contact-content input,
+#contact-content textarea,
+#contact-content button {
+  width: 20rem;
+  padding: 0.5rem;
+  background-color: black;
+  outline: 1px solid white;
+  border: none;
+  resize: none;
+  font-size: 1.2rem;
+  transition: all 0.15s;
+}
+
+#contact-content input:focus,
+#contact-content textarea:focus,
+#contact-content button:focus {
+  outline-width: 2px;
+  border-radius: 0px;
+}
+
+#contact-content button {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#dot-canvas {
+  max-width: 43rem;
+  aspect-ratio: 1/1;
+  border: 1px white solid;
+  background-color: black;
+  filter: invert(0); /* Save for eventual light and dark mode, easy swithceroo*/
 }
