@@ -153,6 +153,8 @@ nav ul:hover li:not(:hover) {
   height: 100%;
   border-radius: 0 0 6rem 0;
   background-color: black;
+  border-right: 1px white solid;
+  box-sizing: border-box;
 }
 
 #hero-grid section:last-child h4 {

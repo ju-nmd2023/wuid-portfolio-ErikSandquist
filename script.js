@@ -26,8 +26,8 @@ for (let i = 0; i < dotsTotal; i++) {
   }
 
   const dot = {
-    x: lineX * (canvas.width / dotsX) + 14,
-    y: lineY * (canvas.height / dotsY) + 14,
+    x: lineX * (canvas.width / (dotsX + 1)) + canvas.width / (dotsX + 1),
+    y: lineY * (canvas.height / (dotsY + 1)) + canvas.height / (dotsY + 1),
     radius: 1.5,
     color: "#ffffff",
   };
