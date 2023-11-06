@@ -43,7 +43,6 @@ function drawDots() {
 
   // Calculate the current position of the wave
   let wavePosition = ((animationFrame / 5) % (dotsY + 20000)) - 20;
-  console.log(waveDirection, direction);
 
   dots.forEach((dot) => {
     // Adjust the dot size based on the wave position
@@ -54,10 +53,10 @@ function drawDots() {
         wavePosition * (canvas.height / dotsY)
     );
 
-    let dotSize = 1.5 + Math.max(0, 5 - distance / 40);
+    dot.radius = 1.5 + Math.max(0, 6 - distance / 40);
 
     ctx.beginPath();
-    ctx.arc(dot.x, dot.y, dotSize, 0, Math.PI * 2);
+    ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
     ctx.fillStyle = dot.color;
     ctx.fill();
   });
@@ -66,15 +65,27 @@ function drawDots() {
 }
 
 setInterval(() => {
-  // The following 3 lines of code is made with ChatGPT from my own promts, Could write it myself, just didnt want to spend to much time on it.
-  waveDirection =
-    Math.random() < 0.5 ? Math.random() * 45 : 315 + Math.random() * 45;
-  animationFrame = 0;
+  let running = false;
+  // Using dots.every to save performance, instead of forEach which isnt breakable every is on return false
+  dots.every((dot) => {
+    if (dot.radius != 1.5) {
+      running = true;
+      return false;
+    }
+    return true;
+  });
 
-  const randomIndex = Math.floor(Math.random() * 4);
-  const canvasRotation = angles[randomIndex];
-  canvas.style.transform = `rotate(${canvasRotation}deg)`;
-}, 11000); // Change this to reset the wave faster and with a new angle
+  if (running == false) {
+    // The following 2 lines of code is made with ChatGPT from my own promts, Could write it myself, just didnt want to spend to much time on it.
+    waveDirection =
+      Math.random() < 0.5 ? Math.random() * 45 : 315 + Math.random() * 45;
+
+    animationFrame = 0;
+    const randomIndex = Math.floor(Math.random() * 4);
+    const canvasRotation = angles[randomIndex];
+    canvas.style.transform = `rotate(${canvasRotation}deg)`;
+  }
+}, 2000); // Change this to reset the wave faster and with a new angle
 
 // Animation loop
 function animate() {
