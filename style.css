@@ -1,13 +1,24 @@
+[data-theme="dark"] {
+  --primary: #ffffff;
+  --background: #000000;
+}
+
+[data-theme="light"] {
+  --primary: #000000;
+  --background: #ffffff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Clash Grotesk", sans-serif;
-  color: #ffffff;
+  color: var(--primary);
+  transition: color 0.3s;
 }
 
 html {
-  background-color: #000000;
+  background-color: var(--background);
   scroll-behavior: smooth;
 }
 
@@ -25,6 +36,10 @@ h3 {
   font-size: 4rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Nav */
 header {
   display: flex;
@@ -36,7 +51,7 @@ nav {
   width: 100%;
   display: flex;
   height: 5rem;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--primary);
 }
 
 nav h2 {
@@ -51,7 +66,7 @@ nav ul {
 }
 
 nav ul li {
-  border-left: 1px solid white;
+  border-left: 1px solid var(--primary);
   width: 100%;
   height: 100%;
   font-size: 2rem;
@@ -60,7 +75,7 @@ nav ul li {
 }
 
 nav ul li:last-child {
-  border-right: 1px solid white;
+  border-right: 1px solid var(--primary);
 }
 
 nav ul li a,
@@ -75,14 +90,46 @@ nav ul li:last-child {
 }
 
 nav ul:hover li:not(:hover) {
-  color: rgba(255, 255, 255, 0.4);
+  opacity: 0.4;
+}
+
+#darkswitch {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  background-color: var(--primary);
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+}
+
+#darkswitch input {
+  display: none;
+}
+
+#darkswitch svg {
+  stroke: var(--background);
+}
+
+#darkswitch::after {
+  content: "";
+  top: 0.3rem;
+  left: 0.3rem;
+  position: absolute;
+  height: calc(100% - 0.6rem);
+  aspect-ratio: 1/1;
+  background-color: var(--background);
+  transition: all 0.3s;
+}
+
+[data-theme="light"] #darkswitch::after {
+  left: calc(100% - 2.4rem);
 }
 
 /* Hero */
 #hero-text {
   max-width: 86rem;
   width: 100%;
-  border: 1px solid white;
+  border: 1px solid var(--primary);
   border-top: 0;
   padding: 0 2rem;
 }
@@ -107,7 +154,7 @@ nav ul:hover li:not(:hover) {
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
-  border: 1px solid white;
+  border: 1px solid var(--primary);
   border-right: 0px;
   border-bottom: 0px;
   border-top: 0px;
@@ -126,7 +173,7 @@ nav ul:hover li:not(:hover) {
   flex-grow: 1;
   max-width: 100%;
   overflow: hidden;
-  border: 1px solid white;
+  border: 1px solid var(--primary);
   border-radius: 2rem;
 }
 
@@ -140,7 +187,7 @@ nav ul:hover li:not(:hover) {
 
 #hero-grid section:last-child {
   position: relative;
-  background-color: white;
+  background-color: var(--primary);
   justify-content: space-between;
 }
 
@@ -152,8 +199,8 @@ nav ul:hover li:not(:hover) {
   width: 100%;
   height: 100%;
   border-radius: 0 0 6rem 0;
-  background-color: black;
-  border-right: 1px white solid;
+  background-color: var(--background);
+  border-right: 1px var(--primary) solid;
   box-sizing: border-box;
 }
 
@@ -163,22 +210,24 @@ nav ul:hover li:not(:hover) {
   z-index: 50;
 }
 
-#hero-grid section:last-child h4:last-child {
+#hero-grid section:last-child a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-decoration: underline;
 }
 
 #hero-grid section:last-child h4:last-child svg {
   width: 2.5rem;
   height: 2.5rem;
+  text-decoration: none;
 }
 
 /* Contact */
 .section-title {
   width: 100%;
   padding: 1rem 2rem;
-  border: 1px white solid;
+  border: 1px var(--primary) solid;
   border-bottom: 0px;
 }
 
@@ -195,7 +244,7 @@ nav ul:hover li:not(:hover) {
   gap: 0.5rem;
   width: 100%;
   height: 100%;
-  border: 1px white solid;
+  border: 1px var(--primary) solid;
   border-right: 0px;
 }
 
@@ -209,8 +258,8 @@ nav ul:hover li:not(:hover) {
 #contact-content button {
   width: 20rem;
   padding: 0.5rem;
-  background-color: black;
-  outline: 1px solid white;
+  background-color: var(--background);
+  outline: 1px solid var(--primary);
   border: none;
   resize: none;
   font-size: 1.2rem;
@@ -225,8 +274,8 @@ nav ul:hover li:not(:hover) {
 }
 
 #contact-content button {
-  background-color: white;
-  color: black;
+  background-color: var(--primary);
+  color: var(--background);
   cursor: pointer;
   font-weight: 500;
 }
@@ -234,7 +283,10 @@ nav ul:hover li:not(:hover) {
 #dot-canvas {
   max-width: 43rem;
   aspect-ratio: 1/1;
-  border: 1px white solid;
-  background-color: black;
-  filter: invert(0); /* Save for eventual light and dark mode, easy swithceroo*/
+  border: 1px var(--primary) solid;
+}
+
+[data-theme="light"] #dot-canvas {
+  filter: invert(1);
+  border: 1px var(--background) solid;
 }

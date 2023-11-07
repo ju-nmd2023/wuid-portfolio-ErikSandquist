@@ -1,3 +1,26 @@
+let theme = localStorage.getItem("theme");
+let html = document.querySelector("html");
+
+if (!theme) {
+  theme = "dark";
+}
+
+html.setAttribute("data-theme", theme);
+localStorage.setItem("theme", theme);
+
+function themeToggle() {
+  if (theme == "dark") {
+    theme = "light";
+  } else {
+    theme = "dark";
+  }
+  console.log(theme);
+
+  localStorage.setItem("theme", theme);
+  html.setAttribute("data-theme", theme);
+}
+
+//--------------------------Contact Dots-----------------------------
 const canvas = document.getElementById("dot-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -53,7 +76,7 @@ function drawDots() {
         wavePosition * (canvas.height / dotsY)
     );
 
-    dot.radius = 1.5 + Math.max(0, 6 - distance / 40);
+    dot.radius = 1.5 + Math.max(0, 6.9 - distance / 69); // Nice
 
     ctx.beginPath();
     ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
@@ -94,3 +117,4 @@ function animate() {
 }
 
 animate(); // Starting the bad boy up :)
+//----------------------------------END :)-------------------------------
