@@ -11,6 +11,9 @@
       href="https://api.fontshare.com/v2/css?f[]=array@401&f[]=clash-grotesk@1&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Javascript :) -->
+    <script src="script.js" defer></script>
   </head>
   <header>
     <nav>
@@ -76,7 +79,9 @@
         <section>
           <h4>Highlight</h4>
           <div>
-            <img src="./images/linear.jpg" alt="project highlight" />
+            <a href="#linearsounds">
+              <img src="./images/linear.webp" alt="project highlight"
+            /></a>
           </div>
         </section>
         <section>
@@ -117,7 +122,42 @@
       <section class="section-title">
         <h2>Projects</h2>
       </section>
-      <section></section>
+      <section id="projects-content">
+        <section id="linearsounds">
+          <h4>Linear Sounds</h4>
+          <img src="./images/linear.webp" alt="project picture" />
+          <p>
+            Created and in charge of Linear Sounds website. My work consisted of
+            graphic design, web design, backend and frontend development. It is
+            built with Sveltekit, Tailwind, Stripe for payment processing and
+            AWS S3 for storing product keys.
+          </p>
+          <a
+            class="button-primary"
+            href="https://linearsounds.com"
+            target="_blank"
+            >Visit site</a
+          >
+        </section>
+        <section id="linearsounds">
+          <h4>Crusted Café</h4>
+          <img src="./images/crusted.png" alt="project picture" />
+          <p>
+            Designed a Logotype, color scheme and made a comlete set of brand
+            guidelines which specifies many things such as logo usage and
+            typefaces
+          </p>
+          <a class="button" href="./projects/crusted.pdf" target="_blank"
+            >View PDF</a
+          >
+        </section>
+      </section>
+    </section>
+    <section id="about">
+      <section class="section-title">
+        <h2>About</h2>
+      </section>
+      <section id="about-content"></section>
     </section>
     <section id="contact">
       <section id="contact-title" class="section-title">
@@ -140,4 +180,3 @@
     </section>
   </body>
 </html>
-<script src="script.js"></script>
